@@ -1,0 +1,443 @@
+:root {
+    color-scheme: light;
+
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --surface-hover: #fafbfc;
+
+    --ink: #17191e;
+    --muted: #69707d;
+
+    --line: #e2e5ea;
+    --line-strong: #cdd2db;
+    --line-hover: #c9ced7;
+
+    --portrait: #e7eaf0;
+    --portrait-ink: #59657e;
+
+    --instagram: #e4405f;
+    --instagram-soft: #fcecef;
+
+    --youtube: #ff0033;
+    --youtube-soft: #fff0f2;
+
+    --telegram: #229ed9;
+    --telegram-soft: #edf8fc;
+
+    --linkedin: #0a66c2;
+    --linkedin-soft: #edf5fc;
+
+    --font:
+    "Manrope",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    min-height: 100%;
+    background: var(--bg);
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background: var(--bg);
+    color: var(--ink);
+
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.5;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.page {
+    width: min(100%, 440px);
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    margin: 0 auto;
+
+    padding:
+    max(48px, env(safe-area-inset-top))
+    24px
+    max(40px, env(safe-area-inset-bottom));
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    animation: page-in 550ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+@keyframes page-in {
+    from {
+    opacity: 0;
+    transform: translateY(8px);
+    }
+
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+
+/* PROFILE */
+
+.portrait {
+    width: 132px;
+    height: 132px;
+
+    margin-bottom: 28px;
+    padding: 4px;
+
+    background: var(--bg);
+
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+}
+
+.portrait-frame {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    place-items: center;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    background: var(--portrait);
+    color: var(--portrait-ink);
+
+    font-size: 27px;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+}
+
+.portrait-frame img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+/* IDENTITY */
+
+.identity {
+    width: 100%;
+}
+
+h1 {
+    margin: 0;
+
+    color: var(--ink);
+
+    font-size: clamp(2.2rem, 10vw, 3rem);
+    font-weight: 700;
+
+    line-height: 1.06;
+    letter-spacing: -0.055em;
+}
+
+.tagline {
+    max-width: 340px;
+
+    margin: 11px auto 0;
+
+    color: var(--muted);
+
+    font-size: 15.5px;
+    font-weight: 400;
+
+    line-height: 1.65;
+    letter-spacing: -0.01em;
+}
+
+/* LINKS */
+
+.links {
+    width: 100%;
+
+    margin: 34px 0 0;
+    padding: 0;
+
+    display: grid;
+    gap: 10px;
+
+    list-style: none;
+}
+
+.link {
+    min-height: 62px;
+
+    padding: 7px 16px 7px 7px;
+
+    display: grid;
+
+    grid-template-columns:
+    46px
+    minmax(0, 1fr)
+    auto;
+
+    align-items: center;
+    gap: 13px;
+
+    background: var(--surface);
+    color: var(--ink);
+
+    border: 1px solid var(--line);
+    border-radius: 18px;
+
+    text-align: left;
+    text-decoration: none;
+
+    transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.link:hover {
+    transform: translateY(-2px);
+
+    background: var(--surface-hover);
+    border-color: var(--line-hover);
+}
+
+.link:active {
+    transform: translateY(0);
+}
+
+.link:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+}
+
+/* ICONS */
+
+.tile {
+    width: 46px;
+    height: 46px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+
+    transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.brand-icon {
+    display: block;
+
+    width: 20px;
+    height: 20px;
+
+    fill: currentColor;
+
+    transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.instagram .tile {
+    color: var(--instagram);
+    background: var(--instagram-soft);
+}
+
+.youtube .tile {
+    color: var(--youtube);
+    background: var(--youtube-soft);
+}
+.telegram-custom-icon {
+  width: 26px;
+  height: 26px;
+}
+.telegram .tile {
+    color: var(--telegram);
+    background: var(--telegram-soft);
+}
+
+.linkedin .tile {
+    color: var(--linkedin);
+    background: var(--linkedin-soft);
+}
+
+.instagram:hover .tile {
+    background: var(--instagram);
+    color: #ffffff;
+}
+
+.youtube:hover .tile {
+    background: var(--youtube);
+    color: #ffffff;
+}
+
+.telegram:hover .tile {
+    background: var(--telegram);
+    color: #ffffff;
+}
+
+.linkedin:hover .tile {
+    background: var(--linkedin);
+    color: #ffffff;
+}
+
+.link:hover .tile {
+    transform: scale(0.96);
+}
+
+.link:hover .brand-icon {
+    transform: scale(0.94);
+}
+
+.youtube .brand-icon {
+    width: 21px;
+    height: 21px;
+}
+
+.linkedin .brand-icon {
+    width: 19px;
+    height: 19px;
+}
+
+/* TEXT */
+
+.platform {
+    min-width: 0;
+}
+
+.name {
+    display: block;
+
+    color: var(--ink);
+
+    font-size: 15px;
+    font-weight: 600;
+
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+}
+
+.handle {
+    max-width: 150px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    font-weight: 500;
+
+    letter-spacing: -0.01em;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mobile-handle {
+    display: none;
+
+    margin-top: 2px;
+
+    color: var(--muted);
+
+    font-size: 12.5px;
+    font-weight: 400;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* MOBILE */
+
+@media (max-width: 420px) {
+    .page {
+    padding-left: 18px;
+    padding-right: 18px;
+    }
+
+    .portrait {
+    width: 122px;
+    height: 122px;
+
+    margin-bottom: 25px;
+    }
+
+    h1 {
+    font-size: 2.35rem;
+    }
+
+    .tagline {
+    max-width: 300px;
+    font-size: 15px;
+    }
+
+    .links {
+    margin-top: 30px;
+    }
+
+    .link {
+    grid-template-columns:
+        44px
+        minmax(0, 1fr);
+
+    padding-right: 12px;
+    }
+
+    .tile {
+    width: 44px;
+    height: 44px;
+    }
+
+    .handle {
+    display: none;
+    }
+
+    .mobile-handle {
+    display: block;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page {
+    animation: none;
+    }
+
+    .link,
+    .tile,
+    .brand-icon {
+    transition: none;
+    }
+}
